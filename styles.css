@@ -44,16 +44,12 @@ footer .brand-logo{width:65px;height:45px}
 .partner-logo img{width:100%;height:110px;max-height:none;object-fit:contain}
 @media(max-width:700px){.partner-logo img{height:85px;max-height:none}}
 
-/* V3.1 — all logos max 80px wide */
-.brand-logo, footer .brand-logo, .hero-logo, .partner-logo img {
-  width: auto;
-  max-width: 80px;
-  height: auto;
-  max-height: 80px;
-  object-fit: contain;
-}
-.partner-logo img { width: 80px; height: auto; }
-@media (max-width: 700px) {
-  .brand-logo, footer .brand-logo, .hero-logo, .partner-logo img { max-width: 80px; max-height: 80px; }
-  .partner-logo img { width: 80px; height: auto; }
-}
+/* V4: precīzi logotipu izmēri; video ir sākumekrāna fons */
+.header .brand-logo{width:120px!important;max-width:120px!important;height:auto!important;max-height:none!important;object-fit:contain!important}
+.hero .hero-logo{display:none!important}
+.partner-logo img{width:140px!important;max-width:140px!important;height:auto!important;max-height:none!important;object-fit:contain!important}
+.hero-video{display:block!important;position:absolute;inset:0;z-index:0;overflow:hidden;opacity:.8}
+.hero-video iframe{position:absolute;top:50%;left:50%;width:max(100vw,177.78vh);height:max(100vh,56.25vw);transform:translate(-50%,-50%);border:0;pointer-events:none}
+.hero-shade{z-index:1;pointer-events:none}
+.hero-content{z-index:2}
+@media(max-width:700px){.header .brand-logo{width:120px!important;max-width:120px!important}.partner-logo img{width:140px!important;max-width:140px!important}}
