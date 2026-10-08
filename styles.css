@@ -39,3 +39,21 @@ body{background:#090909;color:#f7f7f4}
 .contact{background:#101010;color:#fff}
 footer .brand-logo{width:65px;height:45px}
 @media(max-width:700px){.hero-logo{width:95px;height:85px}.hero h1{font-size:clamp(2.65rem,11vw,4.5rem)}.partner-row{grid-template-columns:1fr;gap:12px}.partner-logo{min-height:110px}.partner-logo img{max-height:68px}.brand-logo{width:60px;height:48px}}
+
+/* Vienāds partneru logotipu vizuālais laukums */
+.partner-logo img{width:100%;height:110px;max-height:none;object-fit:contain}
+@media(max-width:700px){.partner-logo img{height:85px;max-height:none}}
+
+/* V3.1 — all logos max 80px wide */
+.brand-logo, footer .brand-logo, .hero-logo, .partner-logo img {
+  width: auto;
+  max-width: 80px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+}
+.partner-logo img { width: 80px; height: auto; }
+@media (max-width: 700px) {
+  .brand-logo, footer .brand-logo, .hero-logo, .partner-logo img { max-width: 80px; max-height: 80px; }
+  .partner-logo img { width: 80px; height: auto; }
+}
