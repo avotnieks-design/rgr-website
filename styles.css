@@ -3,3 +3,39 @@
 
 /* RGR v2 — photo-led design */
 .photo-break{height:min(72vw,690px);min-height:380px;position:relative;overflow:hidden;background:#16191b}.photo-break>img{width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:brightness(.65)}.photo-break::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#080a0dcc,transparent 85%)}.photo-break>div{position:absolute;z-index:2;left:clamp(20px,8vw,140px);bottom:clamp(35px,8vw,110px);display:flex;flex-direction:column;gap:18px}.photo-break span{color:var(--gold);font-size:11px;letter-spacing:.25em;font-weight:700}.photo-break strong{font:800 clamp(58px,9vw,140px)/.9 'Barlow Condensed',sans-serif;letter-spacing:.01em}.gallery{grid-template-columns:repeat(12,1fr);gap:14px}.gallery-item{grid-column:span 4;aspect-ratio:1.38;border:0;padding:0;text-align:left;color:white;font:inherit;appearance:none}.gallery-item:nth-child(1),.gallery-item:nth-child(6){grid-column:span 8;aspect-ratio:2.18}.gallery-item:nth-child(2),.gallery-item:nth-child(7){grid-column:span 4;aspect-ratio:1.05}.gallery-item::after{content:attr(data-label);font-size:10px;font-weight:700;letter-spacing:.08em;right:10px;bottom:14px;line-height:1.5;text-transform:uppercase}.gallery-item::before{content:"";position:absolute;inset:40% 0 0;z-index:1;background:linear-gradient(0deg,#000a,transparent);pointer-events:none}.gallery-item::after{z-index:2}.gallery-item:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.lightbox{border:1px solid #414141;background:#0b0d10;color:white;padding:60px 28px 26px;width:min(94vw,1200px);max-height:94vh;position:fixed}.lightbox::backdrop{background:#000d;backdrop-filter:blur(6px)}.lightbox img{display:block;width:100%;max-height:73vh;object-fit:contain}.lightbox-caption{font-size:12px;color:#c8c8c8;margin:14px 0 0}.lightbox button{border:1px solid #ffffff55;background:#13171b;color:white;cursor:pointer;padding:10px 15px}.lightbox-close{position:absolute;right:20px;top:12px}.lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%)}.lightbox-prev{left:0}.lightbox-next{right:0}@media(max-width:850px){.gallery-item,.gallery-item:nth-child(1),.gallery-item:nth-child(6),.gallery-item:nth-child(2),.gallery-item:nth-child(7){grid-column:span 6;aspect-ratio:1.25}.photo-break{min-height:400px}}@media(max-width:480px){.gallery{gap:8px}.gallery-item,.gallery-item:nth-child(1),.gallery-item:nth-child(6),.gallery-item:nth-child(2),.gallery-item:nth-child(7){grid-column:span 12;aspect-ratio:1.65}.photo-break strong{font-size:56px}.lightbox{padding:55px 12px 20px}}
+
+/* V3 — melns / balts / zelts, foto dominējošs dizains */
+:root{--gold:#e9c54d}
+body{background:#090909;color:#f7f7f4}
+.header{background:rgba(8,8,8,.87);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.13)}
+.brand-logo{width:74px;height:56px;object-fit:contain;display:block}
+.hero{min-height:95svh;background:#070707}
+.hero-shade{background:linear-gradient(90deg,rgba(0,0,0,.83),rgba(0,0,0,.22)),linear-gradient(0deg,rgba(0,0,0,.55),transparent 45%)}
+.hero-content{max-width:850px}
+.hero-logo{display:block;width:125px;height:105px;object-fit:contain;margin-bottom:25px;filter:drop-shadow(0 3px 18px rgba(0,0,0,.3))}
+.hero h1{font-size:clamp(3.4rem,8.3vw,8.5rem);line-height:.94;letter-spacing:-.065em;font-weight:800}
+.hero h1 em{font-style:normal;color:#f0cb48}
+.eyebrow{letter-spacing:.21em;font-weight:700}
+.intro{background:#f5f5f1;color:#151515}
+.intro h2 span{color:#b58a22}
+.intro-copy p{color:#353535}
+.solutions{background:#111;color:#f7f7f4}
+.solution-grid .solution{background:#1b1b1b;border-color:#343434}
+.photo-break{min-height:78vh}
+.photo-break img{filter:saturate(.87)}
+.gallery-section{background:#f4f3ee;color:#101010}
+.gallery-section h2 span{color:#b38b2a}
+.gallery-section .muted,.gallery-note{color:#575757}
+.gallery{gap:10px}
+.gallery-item{border-radius:0;overflow:hidden}
+.gallery-item img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gallery-item:hover img{transform:scale(1.045)}
+.partners{background:#fff;color:#111}
+.partners h2 span{color:#b38b2a}
+.partners .muted,.partners .fineprint{color:#555}
+.partner-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:center;margin-top:50px}
+.partner-logo{min-height:160px;display:flex;align-items:center;justify-content:center;padding:28px;background:#f6f6f4;border:1px solid #e9e9e5}
+.partner-logo img{display:block;max-width:100%;width:100%;max-height:90px;object-fit:contain}
+.contact{background:#101010;color:#fff}
+footer .brand-logo{width:65px;height:45px}
+@media(max-width:700px){.hero-logo{width:95px;height:85px}.hero h1{font-size:clamp(2.65rem,11vw,4.5rem)}.partner-row{grid-template-columns:1fr;gap:12px}.partner-logo{min-height:110px}.partner-logo img{max-height:68px}.brand-logo{width:60px;height:48px}}
