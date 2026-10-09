@@ -61,3 +61,19 @@ footer .brand-logo{width:65px;height:45px}
 /* V4.3: RGR logo never exceeds 62px height in header. */
 header.header a.brand img.brand-logo {height:auto!important;max-height:62px!important;width:auto!important;max-width:100%!important;object-fit:contain!important;}
 @media(max-width:850px){header.header a.brand img.brand-logo{max-height:62px!important;}}
+
+/* V5: partneru kartītes, risinājumi, kontaktu apliecinājums, galerija */
+.partners .partner-logo{background:#303030!important;border:1px solid #404040!important;border-radius:8px!important}
+.solution-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+.solution{min-width:0}.solution-tagline{color:#c9a645!important;font-weight:650!important;margin:12px 0!important}.solutions-lead{margin-top:20px;max-width:680px;line-height:1.6}
+.gallery-item::before,.gallery-item::after{display:none!important;content:none!important}.lightbox-caption{display:none!important}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,320px) minmax(0,1fr);gap:32px;align-items:center}
+.gold-partner-badge{width:100%;max-width:320px;justify-self:center}.gold-partner-badge img{display:block;width:100%;height:auto}.contact-box a:not(.btn){color:#e8c55d}.contact-box p{line-height:1.6}
+.linkedin-link{display:inline-flex;align-items:center;justify-content:center;color:#fff;transition:color .2s}.linkedin-link:hover,.linkedin-link:focus-visible{color:#d4af37}
+@media(max-width:950px){.contact{grid-template-columns:1fr 1fr}.gold-partner-badge{grid-column:1 / -1;grid-row:2}.contact-box{grid-column:2;grid-row:1}}
+@media(max-width:700px){.solution-grid{grid-template-columns:1fr!important}.contact{grid-template-columns:1fr}.gold-partner-badge,.contact-box{grid-column:auto;grid-row:auto}.gold-partner-badge{max-width:280px}}
+
+/* V5.1: fona video nav interaktīvs; YouTube vadības elementu samazināšana. */
+.hero-video { pointer-events: none !important; }
+.hero-video iframe { pointer-events: none !important; }
+.hero-video::after { content: ""; position: absolute; inset: 0; z-index: 2; background: transparent; pointer-events: auto; }

@@ -1,14 +1,3 @@
-# RGR.lv — V3
+RGR V5 — pilna mājaslapas versija. Izmaiņas: četri risinājumi, tumši pelēkas partneru kartītes, kontakti, LinkedIn, Kawasaki Gold Partner emblēma, galerija bez parakstiem. Video cikls 10 s līdz 10 s pirms beigām; RGR logo max 62px. SVARĪGI: šī versija balstīta uz lokāli pieejamo V4.3, nevis uz vēlāk GitHub manuāli mainītiem failiem. Pirms augšupielādes salīdziniet ar GitHub pašreizējo versiju.
 
-Latviešu valodas vienas lapas mājaslapa. Melns + balts + zelta akcenti.
-
-## Publicēšana
-Ievieto `index.html`, `styles.css`, `script.js` projekta saknē, bet visu `images/` saturu — GitHub `images/` mapē. GitHub Pages: Settings → Pages → Deploy from a branch → main → /(root).
-
-## Saturs
-- 10 robotu fotogrāfijas (`robot-01.jpg` … `robot-10.jpg`)
-- RGR, Kawasaki Robotics, Thermal Dynamics, EDR Torches logotipi
-- YouTube video 9z739Dxr_zs (autoplay atkarīgs no pārlūka iestatījumiem)
-
-## Pirms publiskas palaišanas
-Apstiprināt e-pastu (šobrīd `info@rgr.lv` ir vietturis), partneru statusa formulējumus un galīgos uzņēmuma tekstus.
+V5.1: YouTube video iframe nav klikšķināms, atspējota tastatūras vadība, pilnekrāna poga un anotācijas. YouTube dažus savus elementus var parādīt neatkarīgi no vietnes iestatījumiem.
