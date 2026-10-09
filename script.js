@@ -4,7 +4,7 @@ menuButton.addEventListener('click',()=>{const opened=nav.classList.toggle('open
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
 document.getElementById('year').textContent=new Date().getFullYear();
 const gallery=document.getElementById('gallery');
-const captions=['Robotu piegāde un sagatavošana','Tehnoloģiju demonstrācija izstādē','Robotizētas metināšanas testēšana','Metināšanas iekārtas ražotnē','Robotizācijas risinājumu prezentācija','Automatizēta detaļu pārvietošana','Robotizēta metināšana darbībā','Robotizēta materiālu apstrāde','Automatizēta metāla apstrāde','Metināšanas iekārtu ražošanas process'];
+const captions=['Automatizēta metināšana ražotnē', 'Kawasaki robots ražošanas līnijā', 'Kawasaki robots un speciālisti', 'Kawasaki robotu automatizācijas līnija', 'Kawasaki metināšanas robots darbībā', 'Robotizācijas sistēmas uzstādīšana', 'Iepakoti industriālie roboti', 'Kawasaki robota uzstādīšana darbnīcā', 'Automatizēta paletizēšanas līnija', 'Robotizācijas projekta komanda', 'Miller automatizētās metināšanas iekārtas'];
 let current=0;
 const lightbox=document.getElementById('lightbox');
 function showImage(i){current=(i+captions.length)%captions.length;lightbox.querySelector('img').src=`images/robot-${String(current+1).padStart(2,'0')}.jpg`;lightbox.querySelector('img').alt=captions[current];}
