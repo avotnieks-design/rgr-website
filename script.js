@@ -19,38 +19,74 @@ lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close();})
 document.addEventListener('keydown',e=>{if(!lightbox.open)return;if(e.key==='ArrowLeft')showImage(current-1);if(e.key==='ArrowRight')showImage(current+1);});
 
 
-// Sākumlapas video: no 10. sekundes līdz 10 sekundēm pirms beigām.
+// Vietēji glabāts fona video: oriģināla posms no 00:38 līdz beigām.
 (function () {
-  const videoId = 'rgr-hero-player';
-  if (!document.getElementById(videoId)) return;
-  let player, timer;
-  window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player(videoId, {
-      events: {
-        onReady(event) {
-          event.target.mute();
-          event.target.playVideo();
-          timer = window.setInterval(() => {
-            if (!player || typeof player.getDuration !== 'function') return;
-            const duration = player.getDuration();
-            const current = player.getCurrentTime();
-            if (duration > 20 && current >= duration - 10) {
-              player.seekTo(10, true);
-              player.playVideo();
-            }
-          }, 250);
-        },
-        onStateChange(event) {
-          if (event.data === YT.PlayerState.ENDED) {
-            event.target.seekTo(10, true);
-            event.target.playVideo();
-          }
-        }
-      }
+  const video = document.getElementById('rgr-hero-player');
+  const toggle = document.getElementById('rgr-video-toggle');
+  if (!(video instanceof HTMLVideoElement)) return;
+  const hero = video.closest('.hero');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = Boolean(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || '')));
+  let wantsPlayback = !reducedMotion.matches && !saveData;
+  let visible = true;
+  let sourceLoaded = false;
+  video.muted = true;
+  video.defaultMuted = true;
+
+  function updateToggle() {
+    if (!toggle) return;
+    toggle.hidden = Boolean(video.error);
+    toggle.textContent = video.paused ? 'Atskaņot fonu' : 'Apturēt fonu';
+    toggle.setAttribute('aria-label', video.paused ? 'Atskaņot fona video' : 'Apturēt fona video');
+  }
+
+  async function play() {
+    if (!wantsPlayback || !visible || document.visibilityState === 'hidden') return;
+    if (!sourceLoaded) {
+      const mobile = window.matchMedia('(max-width: 767px)').matches;
+      video.src = video.dataset[mobile ? 'mobileSrc' : 'desktopSrc'];
+      sourceLoaded = true;
+      video.load();
+    }
+    try { await video.play(); } catch { updateToggle(); }
+  }
+
+  video.addEventListener('playing', () => {
+    video.classList.add('is-ready');
+    updateToggle();
+  });
+  video.addEventListener('pause', updateToggle);
+  video.addEventListener('error', () => {
+    wantsPlayback = false;
+    video.classList.remove('is-ready');
+    updateToggle();
+  });
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      wantsPlayback = video.paused;
+      if (wantsPlayback) play();
+      else video.pause();
     });
-  };
-  const api = document.createElement('script');
-  api.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(api);
-  window.addEventListener('pagehide', () => window.clearInterval(timer), { once: true });
+  }
+  if ('IntersectionObserver' in window && hero) {
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) play();
+      else video.pause();
+    }, { threshold: 0.05 });
+    observer.observe(hero);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') video.pause();
+    else play();
+  });
+  reducedMotion.addEventListener('change', event => {
+    wantsPlayback = !event.matches && !saveData;
+    if (wantsPlayback) play();
+    else video.pause();
+  });
+  updateToggle();
+  // Dodam priekšroku sākuma attēlam un teksta pirmajai uzzīmēšanai.
+  window.requestAnimationFrame(() => window.requestAnimationFrame(play));
 })();

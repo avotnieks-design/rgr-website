@@ -1,0 +1,44 @@
+{
+  "source": {
+    "filename": "rgr.mp4",
+    "bytes": 168758389,
+    "sha256": "56e50c90a7bec3240f74b785b173708728c62b928cf5f0338c86fcabc2723333",
+    "durationSeconds": 82.48
+  },
+  "clip": {
+    "startSeconds": 38,
+    "endSeconds": 82.48,
+    "videoDurationSeconds": 44.48
+  },
+  "assets": [
+    {
+      "path": "media/rgr-hero-desktop-v1.mp4",
+      "bytes": 9242311,
+      "width": 1280,
+      "height": 720,
+      "fps": 25,
+      "audio": "AAC 96 kb/s; muted in background",
+      "sha256": "3f850f314ce246fec252f959ae9a1a582445bafdc5aeb2e6ad3b9b9875b50f2c",
+      "gitBlob": "6e0a7036f78ebc4d085fb1d97c4f24839cd3c791"
+    },
+    {
+      "path": "media/rgr-hero-mobile-v1.mp4",
+      "bytes": 4261549,
+      "width": 960,
+      "height": 540,
+      "fps": 25,
+      "audio": false,
+      "sha256": "4b2715f129274b187362ea7bbfd8b4846f0326e72a29829252777836a1998296",
+      "gitBlob": "2e6bca93b944ced0de92b0ae5732d4ac99bb8cc7"
+    },
+    {
+      "path": "media/rgr-hero-poster-v1.jpg",
+      "bytes": 41104,
+      "width": 1280,
+      "height": 720,
+      "atSourceSeconds": 38,
+      "sha256": "ff4d2129f985cf831d8a80c56fa45c11d0d15e88b7812445489526774d057849",
+      "gitBlob": "30779dd8db1d91a3a01b71e9b23670f9879f89f6"
+    }
+  ]
+}
