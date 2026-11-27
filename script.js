@@ -4,8 +4,8 @@ menuButton.addEventListener('click',()=>{const opened=nav.classList.toggle('open
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
 document.getElementById('year').textContent=new Date().getFullYear();
 const gallery=document.getElementById('gallery');
-const captions=['Automatizēta metināšana ražotnē', 'Kawasaki robots ražošanas līnijā', 'Kawasaki robots un speciālisti', 'Kawasaki robotu automatizācijas līnija', 'Kawasaki metināšanas robots darbībā', 'Robotizācijas sistēmas uzstādīšana', 'Iepakoti industriālie roboti', 'Kawasaki robota uzstādīšana darbnīcā', 'Automatizēta paletizēšanas līnija', 'Miller automatizētās metināšanas iekārtas'];
-const galleryNumbers=[1,2,3,4,5,6,7,8,9,11];
+const captions=['Automatizēta metināšana ražotnē', 'Kawasaki robots ražošanas līnijā', 'Kawasaki robots un speciālisti', 'Kawasaki robotu automatizācijas līnija', 'Kawasaki metināšanas robots darbībā', 'Robotizācijas sistēmas uzstādīšana', 'Iepakoti industriālie roboti', 'Kawasaki robota uzstādīšana darbnīcā', 'Automatizēta paletizēšanas līnija', 'Miller automatizētās metināšanas iekārtas', 'RGR komanda un partneri izstādē'];
+const galleryNumbers=[1,2,3,4,5,6,7,8,9,11,12];
 let current=0;
 const lightbox=document.getElementById('lightbox');
 function showImage(i){current=(i+captions.length)%captions.length;lightbox.querySelector('img').src=`images/robot-${String(galleryNumbers[current]).padStart(2,'0')}.jpg`;lightbox.querySelector('img').alt=captions[current];}
